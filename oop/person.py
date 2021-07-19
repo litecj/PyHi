@@ -38,6 +38,8 @@ class Person(object):
     @staticmethod
     def main():
         persons = Person(input('name'),input('age'),input('live '))
+        while 1:
+            menu = input('0.종료  1.등록  2.목룍')
         for i in ['name', 'age', 'live']:
             persons.addPerson(input(f'{i}:'))
             persons.pr(persons)
