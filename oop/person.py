@@ -1,0 +1,48 @@
+'''
+이름, 나이, 주소를 입력받아서 자기 소개하는 프로그램을 작성하시오.
+출력은 "안녕하세요, 제 이름은 TOM이고, 나이는 28세이고, 서울에 거주합니다."로 됩니다.
+이때, 여러 사람이면 전부 입력 받아서 전체가 일괄 출력되는 시스템이어야 합니다.
+'''
+
+'''
+class Person (object):
+    def __init__(self):
+        self.persons = []
+
+    def pr(self):
+        return print(f'안녕하세요. 제 이름은 {persons[0]}이고, 나이는{persons[1]}세이고,{persons[2]}에서 거주합니다.\n')
+
+
+    @staticmethod
+    def main():
+        persons = Person(input('name : '))
+        for i in ['이름', '나이', '사는 곳']:
+            persons.pr(int(input(f'{i}')))
+
+Person.main()
+'''
+
+class Person(object):
+    def __init__(self, name, age, live):
+        self.name = name
+        self.age = age
+        self.live = live
+        self.persons = []
+
+    def addPerson(self,person):
+        self.persons.append(person)
+
+    def pr(self,one):
+        return print(f'안녕하세요. 제 이름은 {one.name}이고, 나이는{one.age}세이고,{one.live}에서 거주합니다.\n')
+
+    @staticmethod
+    def main():
+        persons = Person(input('name'),input('age'),input('live '))
+        for i in ['name', 'age', 'live']:
+            persons.addPerson(input(f'{i}:'))
+            persons.pr(persons)
+
+        #return print(f'안녕하세요. 제 이름은 {persons.name}이고, 나이는{persons.age}세이고,{persons.live}에서 거주합니다.\n')
+
+
+Person.main()
