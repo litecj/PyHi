@@ -27,24 +27,21 @@ class Person(object):
         self.name = name
         self.age = age
         self.live = live
-        self.persons = []
 
-    def addPerson(self,person):
-        self.persons.append(person)
-
-    def pr(self,one):
-        return print(f'안녕하세요. 제 이름은 {one.name}이고, 나이는{one.age}세이고,{one.live}에서 거주합니다.\n')
+    def pr(self):
+        return print(f'\n안녕하세요. 제 이름은 {self.name}이고, 나이는{self.age}세이고,{self.live}에서 거주합니다.\n')
 
     @staticmethod
     def main():
-        persons = Person(input('name'),input('age'),input('live '))
+        persons = []
         while 1:
             menu = input('0.종료  1.등록  2.목룍')
-        for i in ['name', 'age', 'live']:
-            persons.addPerson(input(f'{i}:'))
-            persons.pr(persons)
-
-        #return print(f'안녕하세요. 제 이름은 {persons.name}이고, 나이는{persons.age}세이고,{persons.live}에서 거주합니다.\n')
-
+            if menu == '0':
+                return
+            elif menu == '1':
+                persons.append(Person(input('name'),input('age'),input('live')))
+            elif menu == '2':
+                for i in persons:
+                    i.pr()
 
 Person.main()

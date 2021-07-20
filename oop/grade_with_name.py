@@ -31,6 +31,6 @@ class Grade(object):
             AF = 'E'
         else:
             AF = 'F'
-        print(f'이름 : ____ 평균 : {average} \n학점 : {AF}\n')
+        print(f'이름 :{grades.name} 평균 : {average} \n학점 : {AF}\n')
 
 Grade.main()
