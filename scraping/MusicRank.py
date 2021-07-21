@@ -22,15 +22,18 @@ class MusicRanking(object):
     def get_raking(self):
         soup = BeautifulSoup(self.html, 'lxml')
         n_ = 0
-        ls = soup.find_all(name=self.tag_name[0], attrs={'class': self.class_name[0]})
-        ls2 = soup.find_all(name=self.tag_name[0], attrs={'class': self.class_name[1]})
+        ls = soup.find_all(name=self.tag_name, attrs={'class': self.class_name[0]})
+        ls2 = soup.find_all(name=self.tag_name, attrs={'class': self.class_name[1]})
         print(f'List size is {len(ls)}')
         for i, j in zip(ls,ls2):
             n_ += 1
-            print(str(n_) + "Rank", i.find('a').text, ':', j.find('a').text)
+            self.artists.append(i.find('a').text)
+            self.titles.append(j.find('a').text)
+            print( i.find('a').text, j.find('a').text)
 
     def insert_dict(self):
         #1
+        '''
         for i in range(0, len(self.tag_name)):
             self.dict[self.titles[i]] = self.artists[i]
         #2
@@ -39,11 +42,14 @@ class MusicRanking(object):
         #3
         for i,j in enumerate(self.titles):
             self.dict[j] = self.artists[i]
+        '''
+        for i, j in zip(self.titles, self.artists):
+            self.dict[i] = j
 
-        print(dict)
+        print(self.dict)
 
     def dict_to_dataframe(self):
-        self.df = pd.DataFrame.from_ditct(self.dict, orient='index')
+        self.df = pd.DataFrame.from_dict(self.dict, orient='index')
         print(self.df)
 
     def df_to_csv(self):
@@ -73,24 +79,25 @@ def main():
             mr.query_string = f'dayTime={input("Input Date")}{input("Input Hour")}'
             mr.set_html()
         elif menu == 3:
-            music = input('1.melon, 2.bugs')
-            if music == '1' :
+            music = input('1.bugs, 2.melon')
+            if music == '2' :
+                mr.fname = 'melon'
+                mr.tag_name = 'div'
                 mr.class_name.append('ellipsis rank02')
                 mr.class_name.append('ellipsis rank01')
-                mr.tag_name.append('div')
                 mr.get_raking()
-            elif music == '2' :
+            elif music == '1' :
+                mr.fname = 'bugs'
+                mr.tag_name ='p'
                 mr.class_name.append('artist')
                 mr.class_name.append('title')
-                mr.tag_name.append('p')
                 mr.get_raking()
         elif menu == 4:
-
             mr.insert_dict()
         elif menu == 5:
-            pass
+            mr.dict_to_dataframe()
         elif menu == 6:
-            pass
+            mr.df_to_csv()
 
 
 
