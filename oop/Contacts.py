@@ -11,7 +11,7 @@ class Contacts (object):
     def to_string2(self):
         return print(f'name : {self.name} \nphone : {self.phone} \nemail : {self.email} \nadd : {self.address}  ')
 
-def set_contact():
+def set_contact() -> object:
     return Contacts(input('name:'), input('phone:'), input('email:'), input('add:'))
 
 def get_contacts(ls):
@@ -26,7 +26,7 @@ def del_contact(ls,name):
             del ls[i]
     #contacts.ls.remove(input('name:'))
 
-def pr_menu(ls):
+def pr_menu(ls) -> int:
     #return '\t'.join(ls)
     t = ''
     for i, j in enumerate(ls):

@@ -17,7 +17,7 @@ class MusicRanking(object):
 
     def set_html(self):
         self.html = requests.get(f'{self.domain}{self.query_string}', headers=self.headers).text
-        print(f'Crawling HTML is {self.html}')
+        #print(f'Crawling HTML is {self.html}')
 
     def get_raking(self):
         soup = BeautifulSoup(self.html, 'lxml')
@@ -80,13 +80,13 @@ def main():
             mr.set_html()
         elif menu == 3:
             music = input('1.bugs, 2.melon')
-            if music == '2' :
+            if music == '2':
                 mr.fname = 'melon'
                 mr.tag_name = 'div'
                 mr.class_name.append('ellipsis rank02')
                 mr.class_name.append('ellipsis rank01')
                 mr.get_raking()
-            elif music == '1' :
+            elif music == '1':
                 mr.fname = 'bugs'
                 mr.tag_name ='p'
                 mr.class_name.append('artist')
