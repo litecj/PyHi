@@ -10,14 +10,14 @@ class View (object):
         service = self.service
         this = self.preprocessing(melon, bugs)
         print(f'The Type of This is {type(this.melon)}')
-        print(f'The head of Train is\n{this.melon.head(3)}')
-        print(f'The head of Train is\n{this.bugs.head(2)}')
+        print(f'The head of melon is\n{this.melon.head(3)}')
+        print(f'The head of bugs is\n{this.bugs.head(2)}')
 
     def preprocessing(self, melon, bugs) -> object:
         service = self.service
         this = self.dataset
-        this.train = service.model(melon)
-        this.test = service.model(bugs)
+        this.melon = service.model(melon)
+        this.bugs = service.model(bugs)
 
         return this
 
