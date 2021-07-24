@@ -1,8 +1,3 @@
-import collections
-
-from typing_extensions import Deque
-
-
 def isPalindrome(s : []):
     l, r = 0, len(s)-1
     while l < r:
@@ -14,6 +9,7 @@ def isPalindrome(s : []):
             return False
         l +=1; r -= 1
     return True
+
 
 
 if __name__ == '__main__':
