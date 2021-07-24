@@ -9,6 +9,7 @@ def isPalindrome(ls: []) -> bool:
     while len(ls) > 1:
         if ls.pop(0) != ls.pop():
             return False
+        else:return True
     #return [i for i in ls if ls.pop(0) ! = ls.pop()]
 
 if __name__ == '__main__':

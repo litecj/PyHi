@@ -12,6 +12,9 @@ def reverse_string(ls:[]) -> str:
 def list_to_str(ls) -> str:
     return "".join([i for i in ls])
 
+def total(payload) -> str:
+    return "".join([i for i in [i.lower() for i in payload if i.isalnum()][::-1]])
+
 
 if __name__ == '__main__':
     ls = str_to_list(input("input"))
