@@ -6,6 +6,7 @@ from common.menu import print_menu
 list 값은 Y축이고, X축은 0부터 1까지 자동으로 증가한다
 """
 def plot_show():
+    print('Foo-------------------------')
     plt.title('color')
     plt.plot([10, 20, 30, 40], color ='skyblue', linestyle = ':', label='asc')
     plt.plot([40, 30, 20, 10], 'pink', ls='--', label='desc')
