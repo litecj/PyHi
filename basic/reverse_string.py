@@ -5,6 +5,7 @@ def reverse_string(ls:[]) -> str:
     '''left, right = 0, len(ls) -1
     while left < right:
         ls[left], ls[right], = ls[right], ls[left]
+        ls[left]: ls[right], = ls[right]:ls[left]
         left += 1
         right -= 1'''
     return ls[::-1]
