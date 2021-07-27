@@ -11,3 +11,7 @@ if __name__ == '__main__':
         elif menu == '2':
             plot = Plot()
             plot.show_draw_survived_dead2()
+        elif menu == '3':
+            plot = Plot()
+            #plot.show_plot_pclass()
+            plot.show_plot_embarked()
