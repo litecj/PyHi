@@ -28,7 +28,7 @@ def show_box_month (n:str):
     ls = highest_about_seoul(n)
     return ls
 
-def show_box_all_month ():
+def show_box_all_month():
     birth = ChangedTemperatureONMyBirthday()
     birth.read_data()
     ls=[]
@@ -55,8 +55,9 @@ def show_box_per_date():
 
 if __name__ == '__main__':
     #box_show_hi(input("몇월?"))
-    #box_show(show_box_all_month())
-    box_show(show_box_all_month2())
+    # box_show(show_box_all_month())
+    # box_show(show_box_all_month2())
     # box_show(show_box_per_date())
     # box_show_day(show_box_per_date())
+    show_box_per_date()
 

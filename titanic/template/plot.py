@@ -59,9 +59,8 @@ class Plot (object):
 
     def show_plot_there(self):
         this = self.entity
-        this['생존결과'] = this['Survived'].replace(0, '사망자').replace(1, '생존자')
         this['승선항구'] = this['Embarked'].replace('C', '쉘버그').replace('S', '사우스 햅튼').replace('Q', '퀸즈 타운')
         this['좌석등급'] = this['Pclass'].replace(1, '1등석').replace(2, '2등석').replace(3, '3등석')
-        sns.countplot(data=this, x='승선항구', y= '좌석등급')
+        sns.countplot(data=this, x='승선항구', hue= '좌석등급')
         plt.show()
 
