@@ -1,5 +1,7 @@
-import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+rc('font', family = font_manager.FontProperties(fname='C:/Windows/Fonts/H2GTRE.ttf').get_name())
 from common.menu import print_menu
 
 """
@@ -27,4 +29,7 @@ def scatter():
     plt.plot([50, 20, 10, 60], 'y:', label='dashed')
     plt.legend()
     plt.show()
+
+if __name__ == '__main__':
+    plot_show()
 

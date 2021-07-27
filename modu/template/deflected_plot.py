@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
-
+from matplotlib import font_manager, rc
+rc('font', family = font_manager.FontProperties(fname='C:/Windows/Fonts/malgun.ttf').get_name())
 '''
 next() 는 두가지 포맷으로 사용된다.
 function 구조로 사용되면 header 만 리턴한다.
