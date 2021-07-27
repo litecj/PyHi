@@ -33,7 +33,7 @@ def show_box_all_month():
     birth.read_data()
     ls=[]
     [ls.append([]) for i in range(12)]
-    [ls[int(i[0].split('-')[1])-1].append(float(i[-1])) for i in birth.data if i[-1] !='']
+    [ls[int(i[0].split('-')[1]) - 1].append(float(i[-1])) for i in birth.data if i[-1] !='']
     return ls
 
 def show_box_all_month2 ():
@@ -58,6 +58,5 @@ if __name__ == '__main__':
     # box_show(show_box_all_month())
     # box_show(show_box_all_month2())
     # box_show(show_box_per_date())
-    # box_show_day(show_box_per_date())
-    show_box_per_date()
+    box_show_day(show_box_per_date())
 
