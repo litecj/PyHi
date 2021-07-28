@@ -8,10 +8,12 @@ if __name__ == '__main__':
         elif menu == '1':
             plot = Plot()
             plot.show_draw_survived_dead()
+            # plot.show_draw_survived_dead2()
         elif menu == '2':
             plot = Plot()
-            plot.show_draw_survived_dead2()
+            # plot.show_plot_pclass()
+            # plot.show_plot_embarked()
+            plot.show_plot_sex2()
         elif menu == '3':
             plot = Plot()
-            #plot.show_plot_pclass()
-            plot.show_plot_there()
+            plot.show_plot_sex()

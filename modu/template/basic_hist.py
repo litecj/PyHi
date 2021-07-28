@@ -2,7 +2,6 @@ import csv
 import random
 
 import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 rc('font', family = font_manager.FontProperties(fname='C:/Windows/Fonts/malgun.ttf').get_name())
 

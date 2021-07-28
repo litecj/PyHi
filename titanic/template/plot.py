@@ -11,8 +11,6 @@ Titanic's features
 PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
 '''
 
-
-
 class Plot (object):
     dataset = Dataset()
     service = Service()
@@ -57,10 +55,20 @@ class Plot (object):
         sns.countplot(data=this, x='승선항구', hue='생존결과')
         plt.show()
 
-    def show_plot_there(self):
+    def show_plot_sex2(self):
         this = self.entity
-        this['승선항구'] = this['Embarked'].replace('C', '쉘버그').replace('S', '사우스 햅튼').replace('Q', '퀸즈 타운')
-        this['좌석등급'] = this['Pclass'].replace(1, '1등석').replace(2, '2등석').replace(3, '3등석')
-        sns.countplot(data=this, x='승선항구', hue= '좌석등급')
+        this['생존결과'] = this['Survived'].replace(0, '사망자').replace(1, '생존자')
+        this['성별'] = this['Sex'].replace('male', '남성').replace('female', '여성')
+        sns.countplot(data=this, x='성별', hue='생존결과')
         plt.show()
 
+    def show_plot_sex(self):
+        this = self.entity
+        f, ax = plt.subplots(1, 2, figsize=(18, 8))
+        male_series = this['Survived'][this['Sex'] == 'male'].value_counts()
+        female_series = this['Survived'][this['Sex'] == 'female'].value_counts()
+        male_series.plot.pie(explode=[0, 0.1], autopct='%1.1f%%', ax=ax[0], shadow=True)
+        female_series.plot.pie(explode=[0, 0.1], autopct='%1.1f%%', ax=ax[1], shadow=True)
+        ax[0].set_title('남성의 생존비율 0.사망자 vs 1.생존자')
+        ax[1].set_title('여성의 생존비율 0.사망자 vs 1.생존자')
+        plt.show()
